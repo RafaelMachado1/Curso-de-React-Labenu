@@ -32,14 +32,14 @@ Documentação [clique aqui](https://create-react-app.dev/)
 
 
 # JSX
-![alt text](./curso-react-labenu/src/img/jsx.png)
+![alt text](./src/img/jsx.png)
 
 * JSX é uma sintaxe que permite gerar código HTML a partir de código Javascript;
 * É muito parecida com HTML, mas possui algumas particularidades;
 * No momento de executar, ela é transformada em Javascript puro;
 * Um componente em React é representado por uma função que retorna um JSX;
 
-![alt text](./curso-react-labenu/src/img/image.png)
+![alt text](./src/img/image.png)
 
 ## Diferenças JSX e HTML
 É possível utilizar atributos presentes em elementos HTMl.Porém, alguns nomes são levemente diferentes, abordaremos abaixo algumas diferenças:
@@ -52,7 +52,7 @@ Documentação [clique aqui](https://create-react-app.dev/)
 
 * exemplo:
 
-![alt text](./curso-react-labenu/src/img/image-1.png)
+![alt text](./src/img/image-1.png)
 
 ### 2. Imagens Locais
 * Antes, podiamos passar o path (caminho) da imagem, relativo ao arquivo atual, para o atributo src.
@@ -60,7 +60,7 @@ Documentação [clique aqui](https://create-react-app.dev/)
 
 * Sintaxe:
 
-![alt text](./curso-react-labenu/src/img/image-2.png)
+![alt text](./src/img/image-2.png)
 
 ### 3 Valores
 * Em geral, os valores dos atributos são passados da mesma forma que antes;
@@ -71,15 +71,15 @@ Documentação [clique aqui](https://create-react-app.dev/)
 * Antes, era possível declarar funções no arquivo JS e referenciá-las no HTML, nos atributos de evento.
 * As funções eram chamadas entre aspas e com os parênteses, por exemplo:
 
-![](./curso-react-labenu/src/img/image-3.png)
+![](./src/img/image-3.png)
 
 * Agora, podemos declarar a função no **próprio componete**, antes do return. Passamos a função **entre chaves e sem parênteses**:
 
-![](./curso-react-labenu/src/img/image-4.png)
+![](./src/img/image-4.png)
 
 `Exemplo`
 
-![alt text](./curso-react-labenu/src/img/image-5.png)
+![alt text](./src/img/image-5.png)
 
 ### 5. Regra do Pai único
 Todas as expressões JSX devem ter **um único pai**, ou seja, todo o conteúdo de um componente deve estar envolto de uma `div` ou um React Fragment `<> </>`
@@ -89,14 +89,14 @@ Todas as expressões JSX devem ter **um único pai**, ou seja, todo o conteúdo 
 * Uma expressão Javascript é tudo aquilo que representa **um único valo**;
 * Para usar o valor da expressão, basta colocá-la entre {chaves}.
 
-![alt text](./curso-react-labenu/src/img/image-6.png)
+![alt text](./src/img/image-6.png)
 
 ### 7. Self-closing Tags
 São ekementos que não possuem filhos (img, input, br, hr) possuem uma sintaxe levemente diferente. Por isso, devem sequir sintaxe self-closing;
 
 * Qualquer outro elemento que não tenha filhos pode seguir essa sintaxe.
 
-![alt text](./curso-react-labenu/src/img/image-7.png)
+![alt text](./src/img/image-7.png)
 
 
 
