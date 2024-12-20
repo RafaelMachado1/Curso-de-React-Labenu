@@ -10,7 +10,7 @@ Na prática, componentes em React são funções com algumas regras especificas:
 * `Deve retornar um JSX (com um único pai);`
 * Sintaxe de um componente:
 
-![alt text](./src/Img/image.png)
+![alt text](./src/img/image.png)
 
 ### `O que deve ser um componente?`
 * **Não existe uma regra** de quando componetizar uma parte da tela.
@@ -20,23 +20,23 @@ Na prática, componentes em React são funções com algumas regras especificas:
 
         `Exemplo`
 
-![alt text](./src/Img/image-1.png)
+![alt text](./src/img/image-1.png)
 
 ### `Analogia com Lego`
 
-![alt text](./src/Img/image-2.png)
+![alt text](./src/img/image-2.png)
 
 * Código muito grande e/ou confuso;
 * Queremos dar um nome significativo à uma parte da interface;
 
 ### `Criando um componente`
 
-![alt text](./src/Img/image-3.png)
+![alt text](./src/img/image-3.png)
 
 * Quando colocamos um componente A dentro de um componente B, falamos que o componente A é filho do Componente B;
 * Lembrando que o componente App.js, criado por padrão quando iniciamos um app React, é o pai de todos os outros componentes;
 
-![alt text](./src/Img/image-4.png)
+![alt text](./src/img/image-4.png)
 
 * Para colocar o componente na tela, chamamos ele em um componente pai, dentro do nosso JSX;
 
@@ -52,20 +52,20 @@ Na prática, componentes em React são funções com algumas regras especificas:
 
 * Recomenda-se a criação de uma pasta chamada components, que guarde todos os componentes criados: 
 
-![alt text](./src/Img/image-5.png)
+![alt text](./src/img/image-5.png)
 
 * Todo arquivo que possui um componente deve importat o React no topo;
 * Devemos exportar o componente (antes do nome);
 * O arquivo deve ter o mesmo nome do componente que ele guarda.
 
-![alt text](./src/Img/image-6.png)
+![alt text](./src/img/image-6.png)
 
 ### `Importando um componente`
 * Precisamos importá-lo no arquivo que queremos usar. Fazemos isso por meio da palavra import. Atenção para as {chaves} em volta do nome do componente.
 
-![alt text](./src/Img/image-7.png)
+![alt text](./src/img/image-7.png)
 
-![alt text](./src/Img/image-8.png)
+![alt text](./src/img/image-8.png)
 
 
 
