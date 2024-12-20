@@ -43,19 +43,11 @@
   padding: 10px
 }*/
 
-.container {
+.App {
   font-family: sans-serif;
   text-align: center;
- 
 }
 
-.Logo {
-  height: 300px;
-}
-
-.button{
-  background-color: white;
-  text-align: center;
-  color: orange;
-  margin-top: 10px;
+.logo{
+  
 }
