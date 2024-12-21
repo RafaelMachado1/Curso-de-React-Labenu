@@ -1,45 +1,27 @@
-import React from "react";
+import Garagem from "./Componentes/Garagem";
 import "./styles.css";
-import { CardVideo } from "./Componentes/CardVideo.js";
 
-export default function App() {
 
-  return (
+export default function App (){
+const nome1 = "Rafael"
 
-    <div className="tela-inteira">
-      <header>
-        <h1>LabeTube</h1>
-        <input type="text" placeholder="Busca" id="campoDeBusca" />
-      </header>
+    function apresentaGaragem(){
+      alert(`Boas vindas à garagem de ${nome1}`)
+    }
 
-      <main>
-        <nav className="menu-vertical">
-          <ul>
-            <li className="botoes-meunu-vertical">Início</li>
-            <li className="botoes-meunu-vertical">Em alta</li>
-            <li className="botoes-meunu-vertical">Inscrições</li>
-            <hr />
-            <li className="botoes-meunu-vertical">Originais</li>
-            <li className="botoes-meunu-vertical">Histórico</li>
-          </ul>
-        </nav>
+    const nome2 = "Gabriel"
 
-        <section className="painel-de-videos">
-          <CardVideo />
-          <CardVideo />
-          <CardVideo />
-          <CardVideo />
-          <CardVideo />
-          <CardVideo />
-          <CardVideo />
-          <CardVideo />
-        </section>
-      </main>
+    function apresentaGaragem2(){
+      alert(`Boas vindas à garagem de ${nome2}`)
+    }
 
-      <footer>
-        <h4>Oi! Eu moro no footer!</h4>
-      </footer>
+
+  return(
+    <div>
+      <Garagem nome={nome1} mensagemApresentacao={apresentaGaragem}/>
+      <Garagem nome={nome2} mensagemApresentacao={apresentaGaragem2}/>
+     
+
     </div>
-
-  );
+  )
 }
