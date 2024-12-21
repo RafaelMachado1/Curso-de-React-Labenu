@@ -1,27 +1,62 @@
-import Garagem from "./Componentes/Garagem";
-import "./styles.css";
+import React from "react";
+import "./styles.css"
+import { CardVideo } from "./Componentes/CardVideo";
 
 
-export default function App (){
-const nome1 = "Rafael"
+export default function App() {
 
-    function apresentaGaragem(){
-      alert(`Boas vindas à garagem de ${nome1}`)
-    }
-
-    const nome2 = "Gabriel"
-
-    function apresentaGaragem2(){
-      alert(`Boas vindas à garagem de ${nome2}`)
-    }
-
-
+  const informacaoVideo = {
+    imagem: "https://picsum.photos/400/400?a=1",
+    titulo: "Título do Vídeo"
+  }
+  
   return(
-    <div>
-      <Garagem nome={nome1} mensagemApresentacao={apresentaGaragem}/>
-      <Garagem nome={nome2} mensagemApresentacao={apresentaGaragem2}/>
-     
 
+    <div className="tela-inteira">
+      <header>
+        <h1>LabeTube</h1>
+        <input type="text" placeholder="Busca" id="campoDeBusca" />
+      </header>
+      <main>
+        <nav className="menu-vertical">
+          <ul>
+            <li className="botoes-meunu-vertical">Início</li>
+            <li className="botoes-meunu-vertical">Em alta</li>
+            <li className="botoes-meunu-vertical">Inscrições</li>
+            <hr />
+            <li className="botoes-meunu-vertical">Originais</li>
+            <li className="botoes-meunu-vertical">Histórico</li>
+          </ul>
+        </nav>
+        <section className="painel-de-videos">
+          <CardVideo
+            imagem={<img src={informacaoVideo.imagem} alt="Imagem do Video"/>}
+            tituloDoVideo={informacaoVideo.titulo}
+          />
+
+          <CardVideo
+            imagem={<img src={informacaoVideo.imagem} alt="Imagem do Video"/>}
+            tituloDoVideo={informacaoVideo.titulo}
+          />
+          
+          <CardVideo
+            imagem={<img src={informacaoVideo.imagem} alt="Imagem do Video"/>}
+            tituloDoVideo={informacaoVideo.titulo}
+          />
+
+          <CardVideo
+            imagem={<img src={informacaoVideo.imagem} alt="Imagem do Video"/>}
+            tituloDoVideo={informacaoVideo.titulo}
+          />
+       
+          
+        </section>
+      </main>
+
+      <footer>
+        <h4>Oi! Eu moro no footer!</h4>
+      </footer>
     </div>
-  )
+
+  );
 }
