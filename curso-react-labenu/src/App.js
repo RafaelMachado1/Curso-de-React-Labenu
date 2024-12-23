@@ -1,20 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import GlobalStyle from "./GlobalStyle"
-import { Main } from "./Componentes/Main/Main"
-import { Header } from "./Componentes/Header/Header"
-import { Footer } from "./Componentes/Footer/Footer"
-
-
-
+import { Garagem } from "./Componentes/Garagem/Garagem"
 
 
 export default function App(){
+
+  const [nome, setNome] = useState("Labenu")
+
   return(
-    <div>
-    <GlobalStyle/>
-    <Header/>
-    <Main/>
-    <Footer/>
+
+
+    <div className="App">
+      <GlobalStyle/>
+
+      <Garagem nome={nome} alterarNome={setNome} />
+   
     </div>
   )
 }
