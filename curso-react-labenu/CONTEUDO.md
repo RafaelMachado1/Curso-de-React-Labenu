@@ -1,53 +1,42 @@
 # Curso-de-React
-# Aula 8
-![](./src/img/image1.png)
+# Aula 11 
+![](./src/assets/image1.png)
 
 ### Relebrando Componentes
 
-`O que é um componente?`
+Podemos dizer que o input do HTML já possui um estado próprio (atributo value). Para trabalhar com ele corretamemte no React, queremos que o **nosso componente controle o estado do input. Essa técnica é chamada de inputs controlados**
 
-Na prática, componentes em React são funções com algumas regras específicas:
-* Importar o React no topo;
-* Primeira letra do nome maiúscula;
-* Deve retornar um JSX (com um único pai);
-* Sintaxe de um componente ->
+![](./src/assets/image2.png)
 
-![](./src/img/image2.png)
+* A função que passamos para o `onChange` recebe um `event` como parâmetro;
+* O `event` é um objeto que possui `o valor (value) do input`, basta acessar por `event.target.value`
 
-`Imutabilidade do React`
+![](./src/assets/image3.png)
 
-* No React não podemos alterar valores da mesma forma que costumávamos fazer no Javascript.
-* A única forma de alterarmos valores de variáveis é através de **estado**
+Você tem a impressão que o input está agindo da mesma maneira que no caso anterior, com o input não controlado, mas na realidade o que acontece por trás é bem diferente.
 
-![](./src/img/image3.png)
+O input manda o novo valor pro estado, e o estado faz o componente renderizar o input novamente com seu valor novo.
 
-`Enentendo a imutabilidade na prática`
-Para entender,vamos ver a implementação de um **contador** em React. Nosso exercício vai conter:
-* Variável para guardar o valor de um contador;
-* Número que mostra o valor do contador;
-* Botão que ao ser clicado, soma 1 no valor atual.
+![](./src/assets/image4.png)
 
-`Relembrando retorno de funções`
-* Quando queremos enviar para fora de uma função **mais de uma variável**, podemos **retonar um array** e acessar os valores do retorno através das posições do array.
-* No exemplo abaixo, temos uma função com duas responsabilidades: somare multiplicar valores. E queremos retornar duas variáveis, uma contendo a soma e outra contendo a multiplicação dos dois números.
-* Para utilizarmos o retorno dessa função, fazemos então a desestruturação das duas variáveis.
+À primeira vista, parece que o input controlado é mais complicado. De fato, é muito mais **verboso** (Você precisa escrever código a mais, pois precisa salvar o valor), mas ele é muito mais poderoso, e faz mais sentido pela forma com que o React funciona.
 
-![](./src/img/image4.png)
+O React foi desenhado para ser reativo, isto é, a cada alteração simples do state ou de prop, o React irá renderizá-lo novamente.
 
-### `useState()`
+Então agora entenda o caso: você tem um input que tem um valor pré definido, ou seja, um valor que já vem preenchido no primeiro render:
 
-`Mas antes... entendendo Hooks`
+![](./src/assets/image5.png)
 
-**useState** é um hook que permite a criação de variáveis de estados em nossas aplicações.
+Eu não vou conseguir alterar o valor, pois o React entende que aquele valor deveria ser **`Astrodev`**. O React identifica que quando um input é montado com um `value` pré definido, este é um input controlado. Então agora ele só se atualiza por mando de algum lugar externo. Nesse caso, o nosso estado.
 
-Já que os estados são as únicas variáveis monitoradas pelo React, são eles que utilizamos para guardar informações que precisam ter suas alterações refletidas na tela.
+## Para ficar na mente: lembre-se que para controlar um input, precisamos sempre fazer 3 coisas:
 
-`useState()`
+* Declarar um estado para armazenar o valor do input;
+* Aplicar a propriedade `value` no input;
+* Criar uma função de onChange.
 
-**useState()**  é uma dunção que retorna duas variáveis: uma que guarda o **estado atual** e outra variável que guarda uma **função para alterar o estado**. O estado só pode ser alterado por essa função.
+## Input select
+A tag `<select>` permite escolher algumas opções pré-selecionadas dentro de um menu. Estas opções devem estar dentro desta tag `<select>` e envolvida pela tag `<options>`. Para controlar o input, basta incluir o `value` e o `onChange` na tag select, desta forma o value receberá o valor dentro do `<options>`
 
-`Sintaxe`
-
-![alt text](./src/img/image5.png)
-
-
+![](./src/assets/image6.png)
+![](./src/assets/image7.png)
