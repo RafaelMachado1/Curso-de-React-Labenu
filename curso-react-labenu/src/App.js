@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import MainPage from './Components/MainPage/MainPage';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 function Contador() {
-  // Declara uma variável de estado chamada "contador" com o valor inicial de 0
-  const [contador, setContador] = useState(0);
+  
+  const GlobalStyles = createGlobalStyle`
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  `
+  const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
 
   return (
-    <div>
-      <p>Você clicou {contador} vezes</p>
-      <button onClick={() => setContador(contador + 1)}>
-        Clique aqui
-      </button>
-    </div>
+    <>
+    <GlobalStyles/>
+    <Container>
+      <Header/>
+      <MainPage/>
+      <Footer/>
+    </Container>
+    </>
   );
 }
 
