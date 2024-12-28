@@ -7,3 +7,12 @@ export const TitleHeader = styled.header`
     justify-content: center;
     height: 8vh;
 `
+export const Foto = styled.img `
+width: 50px;
+border-radius: 50%;
+
+`
+
+export const Nome = styled.p `
+margin: 30px
+`
