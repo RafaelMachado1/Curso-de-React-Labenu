@@ -1,24 +1,16 @@
-import { ContainerPostagem, Description, Image } from "./styles"
+import React from "react";
+import { TitleHeader } from "../Header/styled";
+import { ContainerPostagem, Image, Description } from "./styles";
 
-const TelaDaPostagem = (props)=> {
-    return(
+const TelaDaPostagem = (props) => {
+  console.log("TelaDaPostagem(props)", props);
+  return (
+    <ContainerPostagem>
+      <TitleHeader>{props.cadastro.titulo}</TitleHeader>
+      <Image src={props.cadastro.imagem} />
+      <Description>{props.cadastro.descricao}</Description>
+    </ContainerPostagem>
+  );
+};
 
-    (props.url && props.descricao ?
-
-        <ContainerPostagem>
-            <Image src={props.url} alt={props.descricao}/>
-            <Description>{props.titulo}</Description>
-            <Description>{props.descricao}</Description>
-
-        </ContainerPostagem>
-
-        :
-        
-        <ContainerPostagem>
-        <Image src={"https://th.bing.com/th/id/OIP.fUb1dtHBgj_DA7S9Cgbn8QHaHa?w=165&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"} alt='drone view' />
-        <Description>{"insira seu post"}</Description>
-      </ContainerPostagem >)
-    )
-}
-
-export default TelaDaPostagem
+export default TelaDaPostagem;
