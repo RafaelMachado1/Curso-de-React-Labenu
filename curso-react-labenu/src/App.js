@@ -1,49 +1,79 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { useState } from "react";
-import FormularioPostagem from "./components/FormularioPostagem/FormularioPostagem";
-import { Header } from "./components/Header";
-import TelaDaPostagem from "./components/TelaDaPostagem/TelaDaPostagem";
-import FormularioLogin from "./components/FormularioLogin/FormularioLogin";
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
+import React, { useState } from "react";
 
+import {Post} from "./components/Post/Post";
 
-const Container = styled.div`
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-`;
+//!! Os trechos comentados fazem parte do exercício final !!
+// !!!!! não descomentar ou modificar até lá !!!!!
 
-
-
-
-function App() {
-  const [pageFlow, setPageFlow] = useState(1);
-  const [login, setLogin] = useState({name: "", foto: "" });
-  const [cadastro, setCadastro] = useState("");
-
+export default function App() {
+  const [textoNovoPost, setTextoNovoPost] = useState("")
+  const [post, setPost] = useState({})
+  const [comentarios, setComentarios] = useState(''); 
+  const [novoComentario, setNovoComentario] = useState('');
   
+
+
+  const onChangeTextoNovoPost = (event) => {
+    setTextoNovoPost(event.target.value);
+  }
+
+ /* const onChangeNovoComentario = (event) => {
+    setComentarios(event.target.value)
+  }*/
+  
+
+  const adicionarPost = () => {
+    // Adiciona um post
+    const novoPost = {
+      id: Date.now(),
+      texto: textoNovoPost,
+      curtido: false
+    }
+
+    setPost(novoPost)
+  }
+
+  const apagarPost = () => {
+    // Apaga o post enviado
+    setPost({})
+  }
+
+  const alterarCurtida = () => {
+    // Altera o status de curtida do post
+    const alterarCurtida = {
+      ...post,
+      curtido: !post.curtido
+    }
+    setPost(alterarCurtida)
+  }
+
+ // Exercício final de debug. Descomentar só depois de finalizar o debug de post
+ 
+
   return (
-    <>
-      <GlobalStyle />
-      <Container>
-        <aside>
-          <Header login={login} />
-          {pageFlow === 1 ? (
-            <FormularioLogin setPageFlow={setPageFlow}  setLogin={setLogin} />
-          ) : (
-            <FormularioPostagem  setCadastro={setCadastro} />
-          )}
-        </aside>
-        <TelaDaPostagem cadastro={cadastro} />
-      </Container>
-    </>
+    <div className="App">
+      <div>
+        <input
+          type="text"
+          onChange={onChangeTextoNovoPost}
+          value={textoNovoPost}
+        />
+        <button onClick={adicionarPost}>Adicionar</button>
+      </div>
+      <br />
+      <Post
+        post={post}
+        alterarCurtida={alterarCurtida}
+        apagarPost={apagarPost}
+
+        comentarios={comentarios}
+        setComentarios={setComentarios}
+        novoComentario={novoComentario}
+        setNovoComentario={setNovoComentario}
+
+        
+        
+      />
+    </div>
   );
 }
-
-export default App;
