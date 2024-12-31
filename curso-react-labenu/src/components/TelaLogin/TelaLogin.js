@@ -1,5 +1,6 @@
 import { Form, FormContainer, Input, SendButton, StyledLabel, RegisterButton } from "./styled";
 
+
 function TelaLogin(props) {
 
   const enviarLogin = () => {
@@ -13,11 +14,14 @@ function TelaLogin(props) {
         <StyledLabel>E-mail:
           <Input />
         </StyledLabel>
+
         <StyledLabel>Senha:
-          <Input type={"password"} />
+          <Input type={"password"}/>
         </StyledLabel>
+
         <SendButton onClick={enviarLogin}>Entrar</SendButton>
-        <RegisterButton onClick={()=>props.irPara(2)}>Cadastre-se</RegisterButton>
+        
+        <RegisterButton onClick={() => props.mudarTela(2)}>Cadastre-se</RegisterButton>
       </Form>
     </FormContainer>
   );
