@@ -1,5 +1,3 @@
-
-//import TelaLogin from "../TelaLogin/TelaLogin";
 import { Form, FormContainer, Input, StyledLabel, SendButton, BackToLoginButton } from "./styled";
 
 function TelaCadastro(props) {
@@ -11,20 +9,25 @@ function TelaCadastro(props) {
           Nome:
           <Input id="titulo" />
         </StyledLabel>
+
         <StyledLabel htmlFor="foto">
           E-mail:
           <Input id="foto" />
         </StyledLabel>
+
         <StyledLabel htmlFor="descricao">
           Senha:
           <Input id="descricao" />
         </StyledLabel>
+
         <StyledLabel htmlFor="descricao">
           Confirmação da senha:
           <Input id="descricao" />
         </StyledLabel>
-        <SendButton onClick={()=>props.irPara(3)}>Cadastrar</SendButton>
-        <BackToLoginButton onClick={()=>props.irPara(1)}>Já possuo um cadastro</BackToLoginButton>
+
+        <SendButton onClick={() => props.mudarTela(3)}>Próxima página</SendButton>
+        
+        <BackToLoginButton onClick={() => props.mudarTela(1)}>Já possuo um cadastro</BackToLoginButton>
       </Form>
     </FormContainer>
   );

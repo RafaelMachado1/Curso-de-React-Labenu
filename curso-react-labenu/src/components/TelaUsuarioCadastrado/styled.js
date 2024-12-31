@@ -3,16 +3,15 @@ import styled from "styled-components";
 export const Div = styled.div`
     height: 90vh;
     display: flex;
-    
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 `
 
 export const Titulo = styled.h1`
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #ff4400;
 `
-
 export const SendButton = styled.button`
   background-color: #ff4400;
   border-radius: 8px;

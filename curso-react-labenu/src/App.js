@@ -1,8 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
-import TelaLogin from "./components/TelaLogin/TelaLogin";
-import TelaCadastro from "./components/TelaCadastro/TelaCadastro";
 import { useState } from "react";
-import TelaUsuarioCadastrado from "./components/TelaUsuarioCadastro/TelaUsuarioCadastro";
+import TelaLogin from "./components/TelaLogin/TelaLogin";
+import TelaCadastro from "./components/TelaCadastro/TelaCadastro"
+import TelaCadastroEndereco from "./components/TelaCadastroEndereco/TelaCadastroEndereco"
+import TelaUsuarioCadastrado from "./components/TelaUsuarioCadastrado/TelaUsuarioCadastrado"
 
 const GlobalStyled = createGlobalStyle`
   *{
@@ -16,67 +17,34 @@ const MainContainer = styled.main`
 `
 
 function App() {
-  const [mudarTela, setMudarTela] = useState(1)
 
-  function irPara(tela) {
-    setMudarTela(tela)
-  }
+    const [valorCondicional, setValorCondicional] = useState(1)
 
-  //Switch case
-  switch (mudarTela) {
-    case 1:
-      return (
-        <MainContainer >
+    const mudarTela = (valor) => {
+      setValorCondicional(valor)
+    }
+
+      const renderizaTela = () => {
+        switch (valorCondicional) {
+          case 1:
+            return <TelaLogin mudarTela={mudarTela}/>;
+          case 2:
+            return <TelaCadastro mudarTela={mudarTela}/>
+          case 3:
+            return <TelaCadastroEndereco mudarTela={mudarTela}/>
+          case 4:
+            return <TelaUsuarioCadastrado mudarTela={mudarTela} />
+        }
+      }
+
+      return(
+        <MainContainer>
           <GlobalStyled />
-          <TelaLogin irPara={irPara} />
+          {renderizaTela()}
         </MainContainer>
+      )
 
-      );
-
-    case 2:
-      return (
-        <MainContainer >
-          <GlobalStyled />
-          <TelaCadastro irPara={irPara} />
-        </MainContainer>
-      );
-      
-    case 3:
-      return (
-        <MainContainer >
-          <GlobalStyled />
-          <TelaUsuarioCadastrado irPara={irPara} />
-        </MainContainer>
-      );
-  }
 }
 
 export default App;
 
-
-/*Ternário
-{mudarTela === "Login" ?
-        <TelaLogin irPara={irPara} />
-        :
-        <TelaCadastro irPara={irPara} />}*/
-
-
-
-/*If Else
-if (mudarTela === "Login") {
-    return (
-      <MainContainer >
-        <GlobalStyled />
-        <TelaLogin />
-
-      </MainContainer>
-    )
-    } else {
-      return (
-        <MainContainer >
-          <GlobalStyled />
-          <TelaCadastro />
-        </MainContainer>
-      );
-
-    }*/
