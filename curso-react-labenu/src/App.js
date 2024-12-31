@@ -1,79 +1,82 @@
-import React, { useState } from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import TelaLogin from "./components/TelaLogin/TelaLogin";
+import TelaCadastro from "./components/TelaCadastro/TelaCadastro";
+import { useState } from "react";
+import TelaUsuarioCadastrado from "./components/TelaUsuarioCadastro/TelaUsuarioCadastro";
 
-import {Post} from "./components/Post/Post";
+const GlobalStyled = createGlobalStyle`
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+`
+const MainContainer = styled.main`
+  height: 100vh;
+`
 
-//!! Os trechos comentados fazem parte do exercício final !!
-// !!!!! não descomentar ou modificar até lá !!!!!
+function App() {
+  const [mudarTela, setMudarTela] = useState(1)
 
-export default function App() {
-  const [textoNovoPost, setTextoNovoPost] = useState("")
-  const [post, setPost] = useState({})
-  const [comentarios, setComentarios] = useState(''); 
-  const [novoComentario, setNovoComentario] = useState('');
-  
-
-
-  const onChangeTextoNovoPost = (event) => {
-    setTextoNovoPost(event.target.value);
+  function irPara(tela) {
+    setMudarTela(tela)
   }
 
- /* const onChangeNovoComentario = (event) => {
-    setComentarios(event.target.value)
-  }*/
-  
+  //Switch case
+  switch (mudarTela) {
+    case 1:
+      return (
+        <MainContainer >
+          <GlobalStyled />
+          <TelaLogin irPara={irPara} />
+        </MainContainer>
 
-  const adicionarPost = () => {
-    // Adiciona um post
-    const novoPost = {
-      id: Date.now(),
-      texto: textoNovoPost,
-      curtido: false
-    }
+      );
 
-    setPost(novoPost)
+    case 2:
+      return (
+        <MainContainer >
+          <GlobalStyled />
+          <TelaCadastro irPara={irPara} />
+        </MainContainer>
+      );
+      
+    case 3:
+      return (
+        <MainContainer >
+          <GlobalStyled />
+          <TelaUsuarioCadastrado irPara={irPara} />
+        </MainContainer>
+      );
   }
-
-  const apagarPost = () => {
-    // Apaga o post enviado
-    setPost({})
-  }
-
-  const alterarCurtida = () => {
-    // Altera o status de curtida do post
-    const alterarCurtida = {
-      ...post,
-      curtido: !post.curtido
-    }
-    setPost(alterarCurtida)
-  }
-
- // Exercício final de debug. Descomentar só depois de finalizar o debug de post
- 
-
-  return (
-    <div className="App">
-      <div>
-        <input
-          type="text"
-          onChange={onChangeTextoNovoPost}
-          value={textoNovoPost}
-        />
-        <button onClick={adicionarPost}>Adicionar</button>
-      </div>
-      <br />
-      <Post
-        post={post}
-        alterarCurtida={alterarCurtida}
-        apagarPost={apagarPost}
-
-        comentarios={comentarios}
-        setComentarios={setComentarios}
-        novoComentario={novoComentario}
-        setNovoComentario={setNovoComentario}
-
-        
-        
-      />
-    </div>
-  );
 }
+
+export default App;
+
+
+/*Ternário
+{mudarTela === "Login" ?
+        <TelaLogin irPara={irPara} />
+        :
+        <TelaCadastro irPara={irPara} />}*/
+
+
+
+/*If Else
+if (mudarTela === "Login") {
+    return (
+      <MainContainer >
+        <GlobalStyled />
+        <TelaLogin />
+
+      </MainContainer>
+    )
+    } else {
+      return (
+        <MainContainer >
+          <GlobalStyled />
+          <TelaCadastro />
+        </MainContainer>
+      );
+
+    }*/
